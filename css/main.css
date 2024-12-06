@@ -530,6 +530,16 @@ section,
 .section-title p {
   margin-bottom: 0;
 }
+/* Initially hide all sections */
+.section {
+  display: none;
+}
+
+/* Show only the active section */
+.section.active {
+  display: block;
+}
+
 
 /*--------------------------------------------------------------
 # mine Section
