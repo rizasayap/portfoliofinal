@@ -267,5 +267,5 @@
         });
 
         // Optionally, show the first section by default (Home)
-        showSection('home');
+        
     });
