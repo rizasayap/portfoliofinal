@@ -44,6 +44,7 @@
       e.stopImmediatePropagation();
     });
   });
+  
 
   /**
    * Preloader
@@ -233,3 +234,38 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+
+    document.addEventListener("DOMContentLoaded", function() {
+        // Get all nav links and sections
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('.section');
+
+        // Function to hide all sections
+        function hideSections() {
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+        }
+
+        // Function to show the clicked section
+        function showSection(sectionId) {
+            hideSections();
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.classList.add('active');
+            }
+        }
+
+        // Add event listener to each nav link
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Prevent default anchor link behavior
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1); // Get the section id
+                showSection(targetId);
+            });
+        });
+
+        // Optionally, show the first section by default (Home)
+        showSection('home');
+    });
